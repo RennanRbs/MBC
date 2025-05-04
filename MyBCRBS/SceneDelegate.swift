@@ -1,6 +1,13 @@
 //
 //  SceneDelegate.swift
-//  MyBC
+//  MyBCRBS
+//
+//  Created by Rennan Rebouças  on 02/05/25.
+//
+
+//
+//  SceneDelegate.swift
+//  MyBCRBS
 //
 //  Created by Rennan Rebouças  on 02/05/25.
 //
@@ -8,8 +15,6 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
-  
     var window: UIWindow?
 
     func scene(
@@ -17,19 +22,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
-        guard let windowScene = scene as? UIWindowScene else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        
-        // Cria o seu ViewController principal
-        let rootViewController = ViewController() // Seu VC principal
-        rootViewController.view.backgroundColor = .white // Caso precise configurar o fundo
-        
-        // Configura qualquer outro elemento da tela
-        window.rootViewController = rootViewController
+        let rootVC = CryptoListViewController()
+        let navController = UINavigationController(rootViewController: rootVC)
+        window.rootViewController = navController
         self.window = window
         window.makeKeyAndVisible()
-}
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
@@ -61,3 +62,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
+
