@@ -1,13 +1,13 @@
 //
-//  MBUITestsLaunchTests.swift
-//  MBUITests
+//  MyBCUITestsLaunchTests.swift
+//  MyBCUITests
 //
 //  Created by Rennan Rebouças  on 02/05/25.
 //
 
 import XCTest
 
-final class MBUITestsLaunchTests: XCTestCase {
+final class MyBCUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
