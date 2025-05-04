@@ -34,6 +34,8 @@ class CryptoListViewController: UIViewController, CryptoPresenterOutput, UITable
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         view.addSubview(tableView)
         tableView.frame = view.bounds
+        tableView.accessibilityIdentifier = "CryptoTableView"
+
 
         interactor.fetchCryptos()
     }

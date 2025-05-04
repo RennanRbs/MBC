@@ -38,4 +38,18 @@ final class MyBCRBSUITests: XCTestCase {
             XCUIApplication().launch()
         }
     }
+    
+    @MainActor
+    func testCryptoListIsDisplayed() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let tableView = app.tables["CryptoTableView"]
+        let exists = NSPredicate(format: "exists == true")
+
+        expectation(for: exists, evaluatedWith: tableView, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil) // <-- ESSA LINHA FALTAVA
+
+        XCTAssertGreaterThan(tableView.cells.count, 0, "A lista de criptomoedas deve exibir ao menos uma célula")
+    }
 }
